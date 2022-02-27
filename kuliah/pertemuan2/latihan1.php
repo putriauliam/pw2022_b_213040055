@@ -92,7 +92,7 @@ echo '<hr>';
 // ===, !==
 echo 1 === "1";
 
-echo '<hr>';
+
 
 // Increment / kurang 1
 // tambah / kurang 1
