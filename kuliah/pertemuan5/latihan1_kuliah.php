@@ -54,12 +54,4 @@ $hari[] = "Sabtu";
 var_dump($hari);
 
 
-
-
-
-
-
-
-
-
 ?>
