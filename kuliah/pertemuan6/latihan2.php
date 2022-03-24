@@ -1,74 +1,53 @@
 <?php 
-// Array Associative
+// array assosiative
 // definisinya sama seperti array numerik, kecuali
 // key-nya adalah string yang kita buat sendiri
 
-$film = [
+$mahasiswa = [
     [
-        "judul" => "Maze runner: The Death Cure", 
-        "genre" => "Fiksi Ilmiah", 
-        "durasi" => "2 jam 22 menit", 
-        "sutradara" => "Wess Bal",
-        "gambar" => "img/e.jpg"
+        "nama" => "Putri Aulia Maulidina", 
+        "npm" => "213040055", 
+        "email" => "ptriauliam61@gmail.com", 
+        "jurusan" => "Teknik Informatika",
+        "gambar" => "img/a.jpg"
     ],
 
     [
-        "judul" => "Scream 5", 
-        "genre" => "Horror", 
-        "durasi" => "1 jam 54 menit", 
-        "sutradara" => "Matt bettinelli-Olpin, tyler Gillett",
-        "gambar" => "img/f.jpg"
+        "nama" => "Rahma Aliaputri Efendi", 
+        "npm" =>"213040047", 
+        "email" => "rahmaaliap@gmail.com", 
+        "jurusan" => "Teknik Informatika",
+        "gambar" => "img/b.jpg"
     ],
 
-    [
-        "judul" => "The Invisible Guest", 
-        "genre" => "Misteri", 
-        "durasi" => "1 jam 46 menit", 
-        "sutradara" => "Oriol Paulo",
-        "gambar" => "img/g.jpg"
-    ],
+    
+];
 
-    [
-        "judul" => "The Con-Heartist", 
-        "genre" => "Komedi Romantis", 
-        "durasi" => "2 jam 08 menit", 
-        "sutradara" => "Mez Tharatorn",
-        "gambar" => "img/h.jpg"
-    ],
-
-   
-]; 
 ?>
 
- 
-
-
 <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Daftar Film</title>
- </head>
- <body>
-     <h1>Daftar Film</h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Mahasiswa</title>
+</head>
+<body>
+    <h1>Daftar Mahasiswa</h1>
 
-     <?php foreach( $film as $f) : ?>
+    <?php foreach( $mahasiswa as $mhs) : ?>
         <ul>
             <li>
-                <img src="<?= $f["gambar"]; ?>" width="100px">
+                <img src="<?= $mhs["gambar"]; ?>" width="100px">
             </li>
-            <li>Judul : <?= $f["judul"];?></li>
-            <li>Genre : <?= $f["genre"];?></li>
-            <li>Durasi : <?= $f["durasi"];?></li>
-            <li>Sutradara : <?= $f["sutradara"];?></li>
+           
+            <li>Nama: <?php echo $mhs["nama"]; ?> </li>
+            <li>NPM: <?php echo $mhs["npm"]; ?> </li> 
+            <li>Email: <?php echo $mhs["email"]; ?></li>
+            <li>Jurusan: <?php echo $mhs["jurusan"]; ?></li>
         </ul>    
 <?php endforeach; ?>          
        
-     
-     
- </body>
- </html>
-
-
+</body>
+</html>
