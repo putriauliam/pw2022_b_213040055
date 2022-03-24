@@ -9,15 +9,16 @@ $film = [
         "genre" => "Fiksi Ilmiah", 
         "durasi" => "2 jam 22 menit", 
         "sutradara" => "Wess Bal",
-        "gambar" => "img/e.jpg"
+        "gambar" => "img/maze runner.jpg"
     ],
+
 
     [
         "judul" => "Scream 5", 
         "genre" => "Horror", 
         "durasi" => "1 jam 54 menit", 
         "sutradara" => "Matt bettinelli-Olpin, tyler Gillett",
-        "gambar" => "img/f.jpg"
+        "gambar" => "img/scream.jpg"
     ],
 
     [
@@ -25,7 +26,7 @@ $film = [
         "genre" => "Misteri", 
         "durasi" => "1 jam 46 menit", 
         "sutradara" => "Oriol Paulo",
-        "gambar" => "img/g.jpg"
+        "gambar" => "img/the invisible guest.jpg"
     ],
 
     [
@@ -33,8 +34,58 @@ $film = [
         "genre" => "Komedi Romantis", 
         "durasi" => "2 jam 08 menit", 
         "sutradara" => "Mez Tharatorn",
-        "gambar" => "img/h.jpg"
+        "gambar" => "img/the con-heartist.jpg"
     ],
+
+    [
+        "judul" => "Divergent", 
+        "genre" => "Fiksi Ilmiah", 
+        "durasi" => "2 jam 19 menit", 
+        "sutradara" => "Neil Burger",
+        "gambar" => "img/divergent.jpg"
+    ],
+
+    [
+        "judul" => "Nanti Kita Cerita Tentang Hari Ini", 
+        "genre" => "Drama", 
+        "durasi" => "2 jam 01 menit", 
+        "sutradara" => "Angga Dwimas Sasongko",
+        "gambar" => "img/nkcthi.jpg"
+    ],
+
+    [
+        "judul" => "The Edge of Seventeen", 
+        "genre" => "Komedi", 
+        "durasi" => "1 jam 44 menit", 
+        "sutradara" => "Kelly Fremon Craig",
+        "gambar" => "img/the edge of seventeen.jpg"
+    ],
+
+    [
+        "judul" => "Bad Genius", 
+        "genre" => "Kejahatan", 
+        "durasi" => "2 jam 10 menit", 
+        "sutradara" => "Nattawut Poonpiriya",
+        "gambar" => "img/bad genius.jpg"
+    ],
+
+    [
+        "judul" => "Better Days", 
+        "genre" => "Drama", 
+        "durasi" => "2 jam 15 menit", 
+        "sutradara" => "Derek Tsang",
+        "gambar" => "img/better days.jpg"
+    ],
+
+    [
+        "judul" => "The Hunger Games", 
+        "genre" => "Fiksi Ilmiah", 
+        "durasi" => "2 jam 22 menit", 
+        "sutradara" => "Gary Ross",
+        "gambar" => "img/hunger games.jpg"
+    ]
+
+   
 
    
 ]; 
