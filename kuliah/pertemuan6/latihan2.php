@@ -40,7 +40,7 @@ $mahasiswa = [
         <ul>
             <li>
                 <img src="<?= $mhs["gambar"]; ?>" width="100px">
-            </li>
+             </li>
            
             <li>Nama: <?php echo $mhs["nama"]; ?> </li>
             <li>NPM: <?php echo $mhs["npm"]; ?> </li> 

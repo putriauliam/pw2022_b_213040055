@@ -1,8 +1,21 @@
 <?php 
-// Array Associative
-// definisinya sama seperti array numerik, kecuali
-// key-nya adalah string yang kita buat sendiri
+// Variable Scope / lingkup variabel
+// $x = 10;
 
+// function tampilX() {
+//     global $x;
+//     echo $x;
+// }
+
+// tampilX();
+
+
+// SUPERG GLOBALS
+// variable global milik PHP
+// merupakan Array Associative
+// echo $_SERVER["SERVER_NAME"];
+
+// $_GET
 $film = [
     [
         "judul" => "Maze runner: The Death Cure", 
@@ -88,35 +101,24 @@ $film = [
 ]; 
 ?>
 
- 
-
-
 <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Daftar Film</title>
- </head>
- <body>
-     <h1>Daftar Film</h1>
-
-     <?php foreach( $film as $f) : ?>
-        <ul>
-            <li>
-                <img src="<?= $f["gambar"]; ?>" width="100px">
-            </li>
-            <li>Judul : <?= $f["judul"];?></li>
-            <li>Genre : <?= $f["genre"];?></li>
-            <li>Durasi : <?= $f["durasi"];?></li>
-            <li>Sutradara : <?= $f["sutradara"];?></li>
-        </ul>    
-<?php endforeach; ?>          
-       
-     
-     
- </body>
- </html>
-
-
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET</title>
+</head>
+<body>
+<h1>Daftar Film</h1>
+<ul>
+<?php foreach($film as $f) : ?>
+    <li>
+        <a href="latihan2.php?judul=<?= $f["judul"]; ?>&genre= <?= $f["genre"]; ?>&durasi=<?= $f["durasi"]; ?>&sutradara=<?= $f["sutradara"]; ?>&gambar=<?= $f["gambar"]; ?>"><?= $f["judul"]; ?></a>
+    </li>
+    
+    <?php endforeach; ?>
+    </ul>
+    
+</body>
+</html>
