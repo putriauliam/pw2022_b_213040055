@@ -2,15 +2,36 @@
 
 require 'functions.php';
 
+// Ambil data di URL
+$id =  $_GET["id"];
+
+// query data tablet berdasarkan id
+$tab = query("SELECT * FROM tablet WHERE id = $id")[0];
+// var_dump($tab); die;
+
 // cek apakah tombol tambah sudah di klik
-if(isset($_POST ["tambah"]) ) {
-    if(tambah($_POST) > 0) {
+if(isset($_POST ["edit"]) ) {
+    
+
+
+    // cek apakah data berhasil diubah atau tidak
+    if( ubah ($_POST) > 0) {
         echo "
         <script>
-            alert('data berhasil ditambahkan!');
+            alert('data berhasil diubah!');
             document.location.href = 'admin.php';
-        </script>";
+        </script>
+        ";
+    } else {
+        echo "
+        <script>
+            alert('data gagal diubah!');
+            document.location.href = 'admin.php';
+        </script>
+        ";  
     }
+    
+
 }
 
 ?>
@@ -27,7 +48,7 @@ if(isset($_POST ["tambah"]) ) {
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Tambah Data Tablet</title>
+    <title>Ubah Data Tablet</title>
   </head>
   <body>
     
@@ -38,31 +59,35 @@ if(isset($_POST ["tambah"]) ) {
 
         <div class="row mt-3">
             <div class="col-8">
+
                 <form action="" method="post" autocomplete="off" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= $tab["id"]; ?>">
+                <input type="hidden" name="gambarLama" value="<?= $tab["gambar"]; ?>">
                 <div class="mb-3">
                     <label for="kode" class="form-label">Kode</label>
-                    <input type="text" class="form-control" id="kode" name="kode" required maxlength="15" minlength="15" style="width: 200px;"> 
+                    <input type="text" class="form-control" id="kode" name="kode" required maxlength="15" minlength="15" style="width: 200px;" value="<?= $tab["kode"]; ?>"> 
                 </div>
 
                 <div class="mb-3">
                     <label for="merek" class="form-label">Merek</label>
-                    <input type="text" class="form-control" id="merek" name="merek" required>
+                    <input type="text" class="form-control" id="merek" name="merek" required value="<?= $tab["merek"]; ?>">
                 </div>
 
                 <div class="mb-3">
                     <label for="tipe" class="form-label">Tipe</label>
-                    <input type="text" class="form-control" id="tipe" name="tipe" required>
+                    <input type="text" class="form-control" id="tipe" name="tipe" required value="<?= $tab["tipe"]; ?>">
                 </div>
                 <div class="mb-3">
                     <label for="deskripsi" class="form-label">Deskripsi Produk</label>
-                    <input type="text" class="form-control" id="deskripsi" name="deskripsi">
+                    <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"> <?= ($tab["deskripsi"]); ?> </textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="gambar" class="form-label">Gambar</label>
+                    <label for="gambar" class="form-label">Gambar</label> <br>
+                    <img src="img/<?= $tab['gambar']; ?>" width="60"> <br>
                     <input type="file" class="form-control" id="gambar" name="gambar">
                 </div>
 
-                <button type="submit" name="tambah" class= "btn btn-success"> Tambah Data Tablet!</button>
+                <button type="submit" name="edit" class= "btn btn-success"> Ubah Data Tablet!</button>
 
                 </form>
             </div>

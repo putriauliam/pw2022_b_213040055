@@ -2,6 +2,14 @@
 require 'functions.php';
 $tablet = query("SELECT * FROM tablet");
 
+// tombol cari ditekan
+if( isset($_POST["cari"])) {
+  $tablet = cari($_POST["keyword"] );
+}
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,13 +25,21 @@ $tablet = query("SELECT * FROM tablet");
   </head>
   <body>
   <div class="container" >
-  <br><br>
       <h1>Daftar Tablet Android</h1>
       
-      <a href="tambah.php">Tambah data tablet</a>
+      <a href="tambah.php" class="btn btn-success">Tambah data tablet</a>
       <br><br>
+ 
+      <form action="" method="post">
 
-      
+          <input type="text" name="keyword" size="40" autofocus placeholder="ketik kata kunci yang dicari.." autocomplete="off">
+          <button type="submit" name="cari" class="btn badge bg-warning">Cari!</button>
+          <br></br>
+
+      </form>
+
+     
+
       <table class="table table-striped table-hover table-bordered text-center border-dark" >
   <thead>
         <tr>
@@ -32,7 +48,7 @@ $tablet = query("SELECT * FROM tablet");
             <th>Kode</th>
             <th>Merek</th>
             <th>Tipe</th>
-            <th>Harga</th>
+            <th>Deskripsi Produk</th>
             <th>Aksi</th>
         </tr>
   </thead>
@@ -44,14 +60,14 @@ $tablet = query("SELECT * FROM tablet");
               <td><?= $i ?></td>
 
 
-                    <td><img src="img/<?= $row["gambar"]; ?>" width="60"></td>
+                    <td><img src="img/<?= $row["gambar"]; ?>" width="100"></td>
                     <td><?= $row["kode"] ?></td>
                     <td><?= $row["merek"] ?></td>
                     <td><?= $row["tipe"] ?></td>
-                    <td><?= $row["harga"] ?></td>  
+                    <td><?= $row["deskripsi"] ?></td>  
                     
                 <td>
-                <a href="" class="btn badge bg-primary">edit</a>
+                <a href="ubah.php?id=<?= $row["id"];?>" class="btn badge bg-primary">ubah</a>
                 <a href="hapus.php?id=<?= $row["id"];?>" onclick="return confirm('Apakah anda yakin menghapus data ini?');" class="btn badge bg-danger">hapus</a>
                 </td>
         </tr>
