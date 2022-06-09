@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2022 at 02:12 PM
+-- Generation Time: Jun 09, 2022 at 09:14 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -24,13 +24,40 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `merek`
+--
+
+CREATE TABLE `merek` (
+  `id_merek` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `merek`
+--
+
+INSERT INTO `merek` (`id_merek`, `nama`) VALUES
+(1, 'Oppo'),
+(2, 'Huawei'),
+(3, 'Advan'),
+(4, 'Nokia'),
+(5, 'Lenovo'),
+(6, 'Acer'),
+(7, 'Nokia'),
+(8, 'Xiaomi'),
+(9, 'Vivo\r\n'),
+(10, 'Asus\r\n');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tablet`
 --
 
 CREATE TABLE `tablet` (
   `id` int(11) NOT NULL,
   `kode` char(15) NOT NULL,
-  `merek` varchar(100) NOT NULL,
+  `merek` int(11) NOT NULL,
   `tipe` varchar(200) NOT NULL,
   `deskripsi` varchar(255) NOT NULL,
   `gambar` varchar(100) NOT NULL
@@ -41,36 +68,93 @@ CREATE TABLE `tablet` (
 --
 
 INSERT INTO `tablet` (`id`, `kode`, `merek`, `tipe`, `deskripsi`, `gambar`) VALUES
-(1, '355861534030196', 'Samsung', 'Galaxy Tab S6 Lite', ' Samsung Galaxy Tab S6 Lite adalah tablet dengan layar TFT beresolusi 1200 x 2000pixels. Hadir dengan CPU Exynos 9611 (10nm) untuk mendukung performanya, tablet yang memiliki bobot 467g ini juga dilengkapi dengan kapasitas baterai sebesar 7040mAh.   ', 'samsung.jpg'),
-(2, '395009468991003', 'Xiaomi', 'Mi Pad 5 Pro', 'Xiaomi Pad 5 Pro hadir dengan spesifikasi RAM berkapasitas 6/8 GB, chipset Snapdragon 870 5G dengan prosesor Octa-core (1×3.2 GHz Kryo 585 &amp; 3×2.42 GHz Kryo 585 &amp; 4×1.80 GHz Kryo 585), GPU Adreno 650 dan kamera utama beresolusi 50 MP. ', 'xiaomi.jpg'),
-(3, '116702003459877', 'Huawei', 'Matepad 11', 'Huawei MatePad 11 mendukung gamut warna DCI-P3 sehingga gambar dan video akan terlihat sangat hidup. MatePad 11 menjadi tablet pertama yang mendukung kecepatan refresh rate 120 Hz.\r\n\r\n', 'huawei.jpg'),
-(4, '500102003450799', 'Lenovo', 'Smart Tab M10 FHD Plus', 'Lenovo Smart Tab M10 FHD Plus adalah produk yang mengusung layar 10.3 inch beresolusi 1200 x 1920 px. Perangkat ini menawarkan kamera 8 MP (Single Lensa), memori 32/64/128 GB, 2/4 GB RAM, dan baterai berkapasitas 5100 mAh.', 'lenovo.jpg'),
-(5, '000405934721108', 'Asus', 'Zenpad 8.0', ' ASUS ZenPad 8.0 (Z380KL) adalah tablet dengan layar IPS beresolusi 800 x 1280pixels. Hadir dengan CPU Qualcomm MSM8916 Snapdragon 410 (28 nm) untuk mendukung performanya, tablet yang memiliki bobot 350g ini juga dilengkapi dengan kapasitas baterai sebesa', 'asus.jpg'),
-(6, '520077832901446', 'Acer', 'Iconia B1-710', '  Acer Iconia Tab B1-710 32GB adalah Tablet yang memiliki ukuran layar 7 inci dengan layar sentuh kapasitif TFT dengan keunggulan fitur berupa Active Matrix dan LED Backlight yang menyajikan resolusi layar 1024 x 600 piksel.  ', 'acer.jpg'),
-(7, '300054676389421', 'Oppo', 'Pad', ' Oppo Pad mengusung layar IPS LCD dengan refresh rate 120Hz. Ukuran layarnya mencapai 11 inci dengan resolusi 2560 x 1600 pixel dan 275 ppi kerapatan piksel. Rasio layarnya juga mencapai 86,3% dengan bezel yang cukup tipis. ', 'oppo.png'),
-(8, '682037529073486', 'Advan', 'Tab VX', ' Advan Tab VX adalah tablet canggih yang memiliki RAM 8 GB dan memori internal 128 GB yang bisa diperluas dengan memori eksternal hingga 1 TB. Mempunyai kamera utama 8MP dan kamera depan 5 MP. ', 'advan.jpg'),
-(9, '947520647704640', 'Nokia', 'T20 WiFi', ' Nokia T20 adalah tablet dengan layar IPS LCD beresolusi 1200 x 2000pixels. Hadir dengan CPU Octa-Core untuk mendukung performanya, tablet yang memiliki bobot 465 gg ini juga dilengkapi dengan kapasitas baterai sebesar 8200mAh dan resolusi kamera belakang', 'nokia.jpg'),
-(10, '875927556560411', 'Vivo', 'Pad', '  Layar tablet terbaru Vivo ini mengadopsi panel IPS LCD berukuran 11 inci dengan resolusi QHD Plus dan refresh rate 120 Hz. Di bagian atasnya, terdapat kamera selfie beresolusi 8 MP yang dilengkapi dengan sensor ToF (Time-of-Flight).', 'vivo.jpg');
+(53, '116702003459877', 2, 'Matepad 11', 'Huawei MatePad 11 mendukung gamut warna DCI-P3', 'huawei.jpg'),
+(69, '300054676389421', 1, 'Pad', 'Oppo Pad mengusung layar IPS LCD dengan refresh rate 120Hz.', '629f1d5c7ca7f.jpg'),
+(70, '682037529073486', 3, 'Tab VX', 'Memiliki RAM 8 GB dan memori internal 128 GB.', '629f1df2a98fd.jpeg'),
+(71, '947520647704640', 7, 'T20 WiFi', 'Tablet dengan layar IPS LCD beresolusi 1200 x 2000pixels.', '629f208eeb4fd.jpg'),
+(72, ' 50010200345079', 5, 'Smart Tab M10 FHD Plus', 'Tablet dengan layar IPS LCD beresolusi 1200 x 2000pixels.', '629f210e6ea33.jpg'),
+(73, '520077832901446', 6, 'Iconia B1-710', 'Acer Iconia Tab B1-710 32GB adalah Tablet yang memiliki ukuran layar 7 inci.', '629f32d6650cf.jpg'),
+(74, '875927556560411', 9, 'Pad', 'Layar tablet terbaru Vivo ini mengadopsi panel IPS LCD berukuran 11 inci.', '62a06a98028da.jpg'),
+(75, '395009468991002', 8, 'Mi Pad 5 Pro', 'RAM berkapasitas 6/8 GB, dengan prosesor Octa-core', '62a06b87e37d9.jpg'),
+(76, '000405934721108', 10, 'Zenpad 8.0', 'ASUS ZenPad 8.0 (Z380KL) adalah tablet dengan layar IPS beresolusi 800 x 1280pixels.', '62a06c8db3add.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `id_user` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id_user`, `username`, `password`) VALUES
+(1, 'putri', '$2y$10$YDA/iJmFoqjxoNfcPWwmxe8vyEJtIlf9lp1U5YWaY/xtGtSiCzlau'),
+(2, 'aaynospe', '$2y$10$vcomM6sFCd0mwO3E.y.HseD1zZAV6rE7HrHH3gh3Z7WHdUAltBE1e'),
+(3, 'aa', '$2y$10$xQTh6.yfZrriT/9fQl25fOTyCt2nMTSe/3sT9PTBwjzhbPyvjNZqS'),
+(6, 'yuni', '$2y$10$mJkS.VtoVJ5g08uLxlWTYu8s8IUewNDD2Nr0oRy6LXozMm1yn9iCG');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `merek`
+--
+ALTER TABLE `merek`
+  ADD PRIMARY KEY (`id_merek`);
+
+--
 -- Indexes for table `tablet`
 --
 ALTER TABLE `tablet`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `merek_2` (`merek`),
+  ADD KEY `merek` (`merek`) USING BTREE;
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `merek`
+--
+ALTER TABLE `merek`
+  MODIFY `id_merek` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `tablet`
 --
 ALTER TABLE `tablet`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `tablet`
+--
+ALTER TABLE `tablet`
+  ADD CONSTRAINT `merek` FOREIGN KEY (`merek`) REFERENCES `merek` (`id_merek`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
