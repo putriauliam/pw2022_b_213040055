@@ -1,6 +1,13 @@
 <?php 
+session_start();
+
+if(!isset($_SESSION["login"])) {
+  header("Location: samples/login.php");
+  exit;
+}
+
 require 'functions.php';
-$tablet = query("SELECT * FROM tablet");
+$tablet = query("SELECT * FROM tablet join merek on merek.id_merek = tablet.merek");
 
 // tombol cari ditekan
 if( isset($_POST["cari"])) {
@@ -41,8 +48,8 @@ if( isset($_POST["cari"])) {
                
                 <form action="" method="post">
                 
-<input type="text" name="keyword" size="40" autofocus placeholder="cari data" autocomplete="off">
-<button type="submit" name="cari" class="btn btn-sm btn-primary">Cari</button>
+<input type="text" name="keyword" size="40" autofocus placeholder="cari data" autocomplete="off" id="keyword" >
+<button type="submit" name="cari" class="btn btn-sm btn-primary" id="tombol-cari">Cari</button>
 
 
 </form>
@@ -51,13 +58,13 @@ if( isset($_POST["cari"])) {
           </ul>
           <ul class="navbar-nav navbar-nav-right">
             <li class="nav-item dropdown d-lg-flex d-none">
-              <a href="../pages/logout.php" class="btn btn-info font-weight-bold">Logout</a>
+              <a href="../pages/logout.php" class="btn btn-primary font-weight-bold">Keluar</a>
             </li>
             <li class="nav-item dropdown d-flex">
               <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
                 
               </a>
-              <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+              <!-- <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
                 <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
@@ -96,7 +103,7 @@ if( isset($_POST["cari"])) {
                 <a class="dropdown-item preview-item"> <i class="icon-inbox"></i> Logout </a>
               </div>
             </li>
-           
+            -->
           </ul>
           
         </div>
@@ -112,13 +119,13 @@ if( isset($_POST["cari"])) {
               <img src="../img/put.JPG" style=" width:100px; height:auto;"/>
             </div>
             <div class="user-name">Putri Aulia Maulidina</div>
-            <div class="user-designation">Mahasiswa</div>
+            <div class="user-designation">Selamat datang admin</div>
           </div>
           <ul class="nav">
             <li class="nav-item">
               <a class="nav-link" href="../pages/tables.php">
                 <i class="icon-command menu-icon"></i>
-                <span class="menu-title">Tables</span>
+                <span class="menu-title">Tabel</span>
               </a>
             </li>
             
@@ -128,24 +135,31 @@ if( isset($_POST["cari"])) {
         <div class="main-panel">
           <div class="content-wrapper">
             <div class="row">
+              <div class="mb-3">
+            <a href="tambah.php" class="btn btn-rounded circle btn-primary mt-2">Tambah data tablet</a>
+                    <a href="report.php" class=" btn btn-rounded circle btn-primary mt-2">Cetak PDF</a>
+            </div>
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h2>Daftar Tablet Android</h2>
-                    <a href="tambah.php" class="btn btn-rounded circle btn-primary mt-2">Tambah data tablet</a>
+                    <!-- <a href="tambah.php" class="btn btn-rounded circle btn-primary mt-2">Tambah data tablet</a>
+                    <a href="../report.php" class=" btn btn-rounded circle btn-primary mt-2">Cetak PDF</a> -->
                     <p class="card-description"></p>
+                   <div id="container">
                     <div class="table-responsive pt-3">
+                      
                       <table class="table table-bordered text-center">
                         <thead>
                         <tr>
-            <th>No.</th>
-            <th>Gambar</th>
-            <th>Kode</th>
-            <th>Merek</th>
-            <th>Tipe</th>
-            <th>Deskripsi Produk</th>
-            <th>Aksi</th>
-        </tr>
+                          <th>No.</th>
+                          <th>Gambar</th>
+                          <th>Kode</th>
+                          <th>Merek</th>
+                          <th>Tipe</th>
+                          <th>Deskripsi Produk</th>
+                          <th>Aksi</th>
+                        </tr>
                         </thead>
                       <tbody>
                       <tr class="table-bordered">
@@ -157,7 +171,7 @@ if( isset($_POST["cari"])) {
 
                     <td><img src="../img/<?= $row["gambar"]; ?>" style="border-radius: 0%; width:100px; height:auto;"></td>
                     <td><?= $row["kode"] ?></td>
-                    <td><?= $row["merek"] ?></td>
+                    <td><?= $row["nama"] ?></td>
                     <td><?= $row["tipe"] ?></td>
                     <td><?= $row["deskripsi"] ?></td>  
                     
@@ -173,6 +187,7 @@ if( isset($_POST["cari"])) {
         <?php endforeach; ?>
                       </tbody>
                       </table>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -185,7 +200,7 @@ if( isset($_POST["cari"])) {
           <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
               <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard templates</a> from Bootstrapdash.com</span>
+              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> 
             </div>
           </footer>
           <!-- partial -->
@@ -209,5 +224,8 @@ if( isset($_POST["cari"])) {
     <!-- End plugin js for this page -->
     <!-- Custom js for this page-->
     <!-- End custom js for this page-->
+
+
+    <script src="../js/script.js" ></script>
   </body>
 </html>

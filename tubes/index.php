@@ -1,6 +1,8 @@
 <?php 
+
 require 'pages/functions.php';
-$tablet = query("SELECT * FROM tablet");
+$tablet = query("SELECT * FROM tablet join merek on merek.id_merek = tablet.merek");
+
 
 // tombol cari ditekan
 if( isset($_POST["cari"])) {
@@ -30,15 +32,20 @@ if( isset($_POST["cari"])) {
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Putri Aulia M</a>
+        <div class="navbar-brand font-weight-bold" >
+          <h3>TABDROID</h3>
+        </div>
         <form action="" method="post">
                 
-                <input type="text" name="keyword" size="40" autofocus placeholder="cari data" autocomplete="off">
-                <button type="submit" name="cari" class="btn btn-sm btn-primary">Cari</button>
+               <div class="input-group ">
+                <input type="text" class="form-control" name="keyword" size="30" placeholder="cari data" autocomplete="off">
+                <button class="btn btn-info" type="submit" name="cari">Cari</button>
+                
+              </div>
                 </form>
                 <div class="m-0">
-                <a href="../tubes/pages/samples/login.php" class="btn btn-info font-weight-bold">Login</a>
-                <a href="../tubes/pages/samples/registrasi.php" class="btn btn-info font-weight-bold">Registrasi</a>
+                <a href="../tubes/pages/samples/login.php" class="btn btn-info font-weight-bold">Masuk</a>
+                <a href="../tubes/pages/samples/registrasi.php" class="btn btn-info font-weight-bold">Daftar</a>
                 </div>
         <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -48,14 +55,26 @@ if( isset($_POST["cari"])) {
     </nav>
     <!-- Akhir Navbar -->
 
-    <!-- Jumbotron -->
-    <section class=" text-center mt-3">
-      <img src="img/tablet.png " width="1275" height="auto"/>
+    <!-- banner -->
+    <section class=" text-center mt-4">
+      <img src="img/tablet.png " width="1285" height="auto"/>
       
       
     </section>
-    <!-- Akhir Jumbotron -->
-
+    <!-- Akhir banner -->
+    <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/tablet.png" class="d-block w-100" width="1275" height="auto" >
+    </div>
+    <div class="carousel-item">
+      <img src="img/huawei.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+  </div>
+</div> -->
    
 
     <!-- Gallery -->
@@ -72,10 +91,10 @@ if( isset($_POST["cari"])) {
             <div class="card bg-white shadow">
               <div class="card-body">
                 <img src="../tubes/img/<?= $row["gambar"]; ?>" class="card-img-top" height="200" width="auto">
-                <h4 class=""><?= $row["merek"]; ?></h4>
+                <h4 class=""><?= $row["nama"]; ?></h4>
                 <h5 class=""><?= $row["tipe"]; ?></h5>
                
-                <a href="#" class="btn btn-primary">Selengkapnya</a>
+                <a href="pages/detail.php?id=<?= $row["id"]; ?>" class="btn btn-primary">Selengkapnya</a>
               </div>
             </div>
           </div>
@@ -95,7 +114,7 @@ if( isset($_POST["cari"])) {
 
     <!-- Footer -->
     <footer class="bg-primary text-white text-center pb-2">
-      <p class="pt-2">Created with <i class="bi bi-heart text-white"></i> by <a href="https://www.instagram.com/ptriauliam/" class="text-white fw-bold">Putri Aulia Maulidina</a></p>
+      <p class="pt-2">Dibuat dengan <i class="bi bi-heart text-white"></i> oleh <a href="https://www.instagram.com/ptriauliam/" class="text-white fw-bold">Putri Aulia Maulidina</a></p>
     </footer>
     <!-- Akhir Footer -->
 

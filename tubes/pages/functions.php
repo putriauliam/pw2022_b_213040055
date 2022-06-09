@@ -21,13 +21,22 @@ function tambah($data) {
      $merek = htmlspecialchars($data["merek"]);
      $tipe = htmlspecialchars($data["tipe"]);
      $deskripsi = htmlspecialchars($data["deskripsi"]);
-    
-    // upload gambar
-    $gambar = upload();
-    if( !$gambar) {
-        return false;
-    }
+
  
+     // cek apakah user tidak mengupload gambar
+     if ($_FILES["gambar"]["error"]===4) {
+
+        // pilih gambar default
+            $gambar= '../img/nophoto.png';
+        } else {
+            // jalankan fungsi upload
+            $gambar = upload();
+            // cek jika upload gagal
+            if(!$gambar) {
+                return false;
+            }
+        }
+
  $query = "INSERT INTO tablet
  VALUES
  ('', '$kode', '$merek', '$tipe', '$deskripsi', '$gambar')     
@@ -89,6 +98,8 @@ function hapus($id) {
     mysqli_query($conn, "DELETE FROM tablet WHERE id = $id");
 
     return mysqli_affected_rows($conn);
+
+    
 }
 
 function ubah($data) {
@@ -96,7 +107,7 @@ function ubah($data) {
     $id = $data["id"];
 
     $kode = htmlspecialchars($data["kode"]);
-    $merek = htmlspecialchars($data["merek"]);
+    $merek = htmlspecialchars($data["nama_merek"]);
     $tipe = htmlspecialchars($data["tipe"]);
     $deskripsi = htmlspecialchars($data["deskripsi"]);
     $gambarLama = htmlspecialchars($data["gambarLama"]);
@@ -106,7 +117,12 @@ function ubah($data) {
     $gambar = $gambarLama;
     } else {
         $gambar = upload();
+        if(!$gambar) {
+            return false;
+        }
     }
+
+  
 
 
 $query = "UPDATE tablet SET

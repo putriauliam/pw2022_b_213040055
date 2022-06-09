@@ -5,6 +5,9 @@ $_SESSION = [];
 session_unset();
 session_destroy();
 
-header("Location: samples/login.php");
+// setcookie('id_user', '', time() - 3600);
+// setcookie('key', '', time() - 3600);
+
+header("Location: ../index.php");
 exit;
 ?>

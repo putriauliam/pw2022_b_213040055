@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if(!isset($_SESSION["login"])) {
+  header("Location: samples/login.php");
+  exit;
+}
+
 require 'functions.php';
 
 // Ambil data di URL
@@ -8,7 +13,7 @@ $id =  $_GET["id"];
 
 // query data tablet berdasarkan id
 $tab = query("SELECT * FROM tablet WHERE id = $id")[0];
-// var_dump($tab); die;
+
 
 // cek apakah tombol tambah sudah di klik
 if(isset($_POST ["edit"]) ) {
@@ -51,10 +56,10 @@ if(isset($_POST ["edit"]) ) {
   </head>
   <body>
     
-    <div class="container">
-        <h1>Form Tambah Data Tablet</h1>
+    <div class="container mt-3">
+        <h1>Form Ubah Data Tablet</h1>
 
-        <a href="tables.php">Kembali ke Daftar Tablet Android</a>
+        <a href="../pages/tables.php">Kembali ke Daftar Tablet Android</a>
 
         <div class="row mt-3">
             <div class="col-8">
@@ -68,9 +73,22 @@ if(isset($_POST ["edit"]) ) {
                 </div>
 
                 <div class="mb-3">
-                    <label for="merek" class="form-label">Merek</label>
-                    <input type="text" class="form-control" id="merek" name="merek" required value="<?= $tab["merek"]; ?>">
-                </div>
+                            <label for="merek" class="form-label">Merek</label>
+                            <select class="form-select" name="nama_merek" required="" id="merek">
+                                <option disabled="" selected="">Pilih Merek</option>
+                                <option value="1" <?php if($tab['merek'] == "1") { echo "selected";} ?>>Oppo</option>
+                                <option value="2" <?php if($tab['merek'] == "2") { echo "selected";} ?>>Huawei</option>
+                                <option value="3" <?php if($tab['merek'] == "3") { echo "selected";} ?>>Advan</option>
+                                <option value="4" <?php if($tab['merek'] == "4") { echo "selected";} ?>>Nokia</option>
+                                <option value="5" <?php if($tab['merek'] == "5") { echo "selected";} ?>>Lenovo</option>
+                                <option value="6" <?php if($tab['merek'] == "6") { echo "selected";} ?>>Acer</option>
+                                <option value="7" <?php if($tab['merek'] == "7") { echo "selected";} ?>>Nokia</option>
+                                <option value="8" <?php if($tab['merek'] == "8") { echo "selected";} ?>>Xiaomi</option>
+                                <option value="9" <?php if($tab['merek'] == "9") { echo "selected";} ?>>Vivo</option>
+                                <option value="10" <?php if($tab['merek'] == "10") { echo "selected";} ?>>Asus</option>
+
+                            </select>
+                        </div>
 
                 <div class="mb-3">
                     <label for="tipe" class="form-label">Tipe</label>
@@ -86,7 +104,7 @@ if(isset($_POST ["edit"]) ) {
                     <input type="file" class="form-control" id="gambar" name="gambar">
                 </div>
 
-                <button type="submit" name="edit" class= "btn btn-success"> Ubah Data Tablet</button>
+                <button type="submit" name="edit" class= "btn btn-primary mb-3"> Ubah Data Tablet</button>
 
                 </form>
             </div>
