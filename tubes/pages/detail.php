@@ -37,6 +37,7 @@ if( isset($_POST["cari"])) {
         
       </div>
     </nav>
+  
     <section class="content">
     <div class="container mt-4">
     <h1>Spesifikasi Tablet</h1>

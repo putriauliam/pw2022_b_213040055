@@ -64,7 +64,7 @@ if (isset($_POST ["login"]) ) {
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Regal Admin</title>
+    <title>Halaman Login</title>
     <!-- base:css -->
     <link rel="stylesheet" href="../../vendors/mdi/css/materialdesignicons.min.css" />
     <link rel="stylesheet" href="../../vendors/feather/feather.css" />
@@ -75,7 +75,7 @@ if (isset($_POST ["login"]) ) {
     <!-- inject:css -->
     <link rel="stylesheet" href="../../css/style.css" />
     <!-- endinject -->
-    <link rel="shortcut icon" href="../../images/favicon.png" />
+    <!-- <link rel="shortcut icon" href="../../images/favicon.png" /> -->
   </head>
 
   <body>

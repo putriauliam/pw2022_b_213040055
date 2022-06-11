@@ -139,7 +139,7 @@ return mysqli_affected_rows($conn);
 }
 
 function cari($keyword) {
-    $query = "SELECT * FROM tablet
+    $query = "SELECT * FROM tablet  join merek on merek.id_merek = tablet.merek
                 WHERE
             kode LIKE '%$keyword%' OR
             merek LIKE '%$keyword%' OR

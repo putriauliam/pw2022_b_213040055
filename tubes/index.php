@@ -47,10 +47,6 @@ if( isset($_POST["cari"])) {
                 <a href="../tubes/pages/samples/login.php" class="btn btn-info font-weight-bold">Masuk</a>
                 <a href="../tubes/pages/samples/registrasi.php" class="btn btn-info font-weight-bold">Daftar</a>
                 </div>
-        <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button> -->
-        
       </div>
     </nav>
     <!-- Akhir Navbar -->
@@ -65,17 +61,17 @@ if( isset($_POST["cari"])) {
     <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="img/tablet.png" class="d-block w-100" width="1275" height="auto" >
+      <img src="img/2.png" class="d-block w-100 mt-3"  >
     </div>
     <div class="carousel-item">
-      <img src="img/huawei.jpg" class="d-block w-100" alt="...">
+      <img src="img/tablet.png" class="d-block w-100 mt-3"  alt="...">
     </div>
     <div class="carousel-item">
-      <img src="..." class="d-block w-100" alt="...">
+      <img src="img/3.png" class="d-block w-100 mt-3" width="1275" height="auto" alt="...">
     </div>
   </div>
-</div> -->
-   
+</div>
+    -->
 
     <!-- Gallery -->
     <section id="skills">
